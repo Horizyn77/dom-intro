@@ -32,7 +32,7 @@ function totalPhoneBill(callsAndSmss) {
     }
   
     var callCost = callCount * 2.75;
-    var smsCost = smsCount * 0.65;
+    var smsCost = smsCount * 0.75;
   	var totalCost = callCost + smsCost;
   
   return totalCost.toFixed(2);
