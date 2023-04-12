@@ -13,6 +13,7 @@ const callTotalElem = document.querySelector(".callTotalOne");
 const smsTotalElem = document.querySelector(".smsTotalOne");
 
 const totalCostElem = document.querySelector(".totalOne");
+const totalCElem = document.querySelector(".totalC")
 //create a variable that will keep track of the total bill
 
 //add an event listener for when the add button is pressed
@@ -37,12 +38,10 @@ function textBillTotal() {
     totalCostElem.innerHTML = totalCost.toFixed(2);
 
     if (totalCost >= 50) {
-        totalCostElem.classList.add("danger");
+        totalCElem.classList.add("danger");
     } else if (totalCost >= 30) {
-        totalCostElem.classList.add("warning");
+        totalCElem.classList.add("warning");
     }
-
-    console.log(callsTotal)
 }
 
 addToBillBtnElem.addEventListener("click", textBillTotal);

@@ -9,6 +9,7 @@ const billTotalElement = document.querySelector(".billTotal");
 
 const billStringElement = document.querySelector(".billString");
 
+const totalClElement = document.querySelector(".totalCl")
 
 //create the function that will be called when the calculate button is pressed
 //  * this function should read the string value entered - split it on a comma.
@@ -42,6 +43,15 @@ function calculateBtnClicked() {
     var billStringInput = billStringElement.value;
     var roundedTotal = totalPhoneBill(billStringInput);
     billTotalElement.innerHTML = roundedTotal;
+
+    if (roundedTotal > 30) {
+      totalClElement.classList.add("danger")
+    } else if (roundedTotal > 20) {
+      totalClElement.classList.add("warning")
+      totalClElement.classList.remove("danger")
+    } else if (roundedTotal <= 20) {
+      totalClElement.classList.remove("warning")
+    }
 }
 
 calculateBtnElement.addEventListener("click", calculateBtnClicked);
