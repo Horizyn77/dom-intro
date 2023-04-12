@@ -71,6 +71,7 @@ function calculateBillTotal() {
 
     if (totalSettings >= criticalLevelSettingVal && criticalLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("danger");
+        addBtnElem.disabled = true;
     } else if (totalSettings >= warningLevelSettingVal && warningLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("warning");
     }

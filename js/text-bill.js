@@ -37,9 +37,9 @@ function textBillTotal() {
     var totalCost = callsTotal + smsTotal;
     totalCostElem.innerHTML = totalCost.toFixed(2);
 
-    if (totalCost >= 50) {
+    if (totalCost > 50) {
         totalCElem.classList.add("danger");
-    } else if (totalCost >= 30) {
+    } else if (totalCost > 30) {
         totalCElem.classList.add("warning");
     }
 }

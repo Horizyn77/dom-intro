@@ -24,10 +24,10 @@ function totalPhoneBill(callsAndSmss) {
   
   	for (var i = 0; i < callsAndSmssArray.length; i++) {
     	callsAndSmssArray[i] = callsAndSmssArray[i].trim();
-      
-      	if (callsAndSmssArray[i] === "call") {
+
+      	if (callsAndSmssArray[i].toLowerCase() === "call") {
         	callCount++;
-        } else if (callsAndSmssArray[i] === "sms") {
+        } else if (callsAndSmssArray[i].toLowerCase() === "sms") {
         	smsCount++;
         }
     }
