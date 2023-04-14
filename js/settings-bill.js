@@ -27,6 +27,7 @@ let criticalLevelSettingVal = 0;
 
 let callTotalVal = 0;
 let smsTotalVal = 0;
+let totalVal = 0;
 
 //add an event listener for when the 'Update settings' button is pressed
 
@@ -35,11 +36,19 @@ function setSettings() {
     smsCostSettingVal = parseFloat(smsCostSettingElem.value);
     warningLevelSettingVal = parseFloat(warningLevelSettingElem.value);
     criticalLevelSettingVal = parseFloat(criticalLevelSettingElem.value);
+
+    if (totalVal <= criticalLevelSettingVal) {
+        totalClassSettingsElem.classList.remove("danger");
+        addBtnElem.disabled = false;
+    }
+    
+    if (totalVal <= warningLevelSettingVal) {
+        totalClassSettingsElem.classList.remove("warning");
+    }
 }
+//add an event listener for when the add button is pressed
 
 updateSettingsElem.addEventListener("click", setSettings)
-
-//add an event listener for when the add button is pressed
 
 function calculateBillTotal() {
 
@@ -66,15 +75,16 @@ function calculateBillTotal() {
     callTotalSettingsElem.innerHTML = callTotalVal.toFixed(2);
     smsTotalSettingsElem.innerHTML = smsTotalVal.toFixed(2);
 
-    let totalSettings = callTotalVal + smsTotalVal;;
+    let totalSettings = callTotalVal + smsTotalVal;
+    totalVal = totalSettings;
     totalSettingsElem.innerHTML = totalSettings.toFixed(2);
 
-    if (totalSettings >= criticalLevelSettingVal && criticalLevelSettingVal !== 0) {
+    if (totalSettings > criticalLevelSettingVal && criticalLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("danger");
         addBtnElem.disabled = true;
-    } else if (totalSettings >= warningLevelSettingVal && warningLevelSettingVal !== 0) {
+    } else if (totalSettings > warningLevelSettingVal && warningLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("warning");
-    }
+    } 
 }
 
 addBtnElem.addEventListener("click", calculateBillTotal)

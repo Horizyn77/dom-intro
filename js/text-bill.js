@@ -25,9 +25,9 @@ function textBillTotal() {
 
     var billTypeEntered = billTypeTextElem.value.trim();
 
-    if (billTypeEntered === "call") {
+    if (billTypeEntered.toLowerCase() === "call") {
         callsTotal += 2.75;
-    } else if (billTypeEntered === "sms") {
+    } else if (billTypeEntered.toLowerCase() === "sms") {
         smsTotal += 0.75;
     }
 
