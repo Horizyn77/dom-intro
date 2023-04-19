@@ -75,14 +75,13 @@ function calculateBillTotal() {
     callTotalSettingsElem.innerHTML = callTotalVal.toFixed(2);
     smsTotalSettingsElem.innerHTML = smsTotalVal.toFixed(2);
 
-    let totalSettings = callTotalVal + smsTotalVal;
-    totalVal = totalSettings;
-    totalSettingsElem.innerHTML = totalSettings.toFixed(2);
+    totalVal = callTotalVal + smsTotalVal;
+    totalSettingsElem.innerHTML = totalVal.toFixed(2);
 
-    if (totalSettings > criticalLevelSettingVal && criticalLevelSettingVal !== 0) {
+    if (totalVal > criticalLevelSettingVal && criticalLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("danger");
         addBtnElem.disabled = true;
-    } else if (totalSettings > warningLevelSettingVal && warningLevelSettingVal !== 0) {
+    } else if (totalVal > warningLevelSettingVal && warningLevelSettingVal !== 0) {
         totalClassSettingsElem.classList.add("warning");
     } 
 }
